@@ -1,19 +1,18 @@
 {
   "name": "rabbit-mq-hold-messages-poc",
   "version": "0.0.0",
+  "type": "module",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test"
+    "start:consumer": "MODE=consumer node main.js",
+    "start:producer": "MODE=producer node main.js",
+    "infra:up": "docker compose -p yuvod-poc up -d"
   },
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "amqplib": "^0.10.3"
+  },
   "devDependencies": {
-    "nx": "14.8.6",
-    "@nrwl/cli": "14.8.6",
-    "@nrwl/workspace": "14.8.6",
-    "typescript": "~4.8.2",
-    "prettier": "^2.6.2"
+    "@types/amqplib": "^0.10.1"
   }
 }
